@@ -1,0 +1,247 @@
+<script src="jquery-1.9.1.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script src="keyboard.js"></script>
+
+<style>
+html, body,table, tr,td
+{
+  width: 100%;
+  table-layout: fixed;
+  padding: 0;
+  margin: 0;
+}
+body {
+	background: white;
+}
+table{
+	height: 100%;
+	border: 0;
+	border-collapse: collapse;
+}
+tr{
+	background: rgb(255,255,127);
+	margin: 0;
+	padding: 0;
+}
+td{
+	background: rgb(127,255,255);
+	margin: 0;
+	padding: 0;
+	box-shadow:inset 0 0 10px #000000;
+}
+.unit{
+	z-index: 1;
+	position: absolute;
+	box-shadow:inset 0 0 10px #000000;
+	left: 0;
+	top: 0;
+}
+#hero{
+	background: #00ff00;
+}
+.rock{
+	background: brown;
+}
+.gem{
+	background: pink;
+	border-radius: 50%;
+}
+.gold{
+	background: yellow;
+	border-radius: 50%;	
+}
+</style>
+<body>
+	<div id="battlefield"></div>
+	<div style="display:none;" class="resources">
+		<div id="hero" class= "unit"></div>
+		<div class="rock unit"></div>
+		<div class="gem unit"></div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	
+	var cells_x=10,cells_y=10;
+	var cells = [];
+	(function makeBattleField(w,h)
+	{
+		w-=1;
+		h-=1;
+		var battlefield = document.createElement("table");
+		while(h>=0){
+			cells[h] = [];
+			var tr = document.createElement("tr");
+			var _w = w;
+			while(_w>=0){
+				cells[h][_w] = [];
+				var td = document.createElement("td");
+				tr.appendChild(td);
+				_w--;
+			}
+			battlefield.appendChild(tr);
+			h--;
+		}
+		document.getElementById('battlefield').appendChild(battlefield);
+	})(cells_x,cells_y);
+
+	var hero = $('#hero');
+	hero.x=1;
+	hero.y=1;
+	var battlefield = $('#battlefield');
+
+	hero.isMoving = false;
+	var cell = $('#battlefield > table > tr:first > td:first');
+	$('.unit').width(cell.width());
+	$('.unit').height(cell.height());
+	(function createHero(){
+		//$('#battlefield > table > tr:first > td:eq(1)').css('background','red');
+		//$("#battlefield").append(hero);
+		hero.appendTo(battlefield);
+		var p = $('#battlefield > table > tr:eq(1) > td:eq(1)').offset();
+		hero.offset(p);
+
+	})();
+
+	setInterval(getPressedKeys, 100);
+
+	function getPressedKeys(shure)
+	{
+		var activeKeys = KeyboardJS.activeKeys();
+		//console.log(activeKeys);
+		if($.inArray("right",activeKeys)>=0){
+			moveHero("right", shure);
+		}
+		else if($.inArray("left",activeKeys)>=0){
+			moveHero("left", shure);
+		}
+		else if($.inArray("up",activeKeys)>=0){
+			moveHero("up", shure);
+		}
+		else if($.inArray("down",activeKeys)>=0){
+			moveHero("down", shure);
+		}
+	}
+
+	function moveHero(direction, shure){
+		if (hero.isMoving == true && !shure)
+			return;
+		animation_speed = 400;
+		animation_type = "linear";
+		if("right"==direction && couldWalk(1,0))
+		{
+			hero.isMoving = true;
+			hero.x++;
+			hero.animate({"left": "+="+cell.width()+"px"}, animation_speed, animation_type, function(){
+				hero.isMoving = false;
+			});
+		}
+		else if("left"==direction && couldWalk(-1,0))
+		{
+			hero.x--;
+			hero.isMoving = true;
+			hero.animate({"left": "-="+cell.width()+"px"}, animation_speed, animation_type, function(){
+				hero.isMoving = false;
+			});
+		}
+		else if("up"==direction && couldWalk(0, -1))
+		{
+			hero.y--;
+			hero.isMoving = true;
+			hero.animate({"top": "-="+cell.height()+"px"}, animation_speed, animation_type, function(){
+				hero.isMoving = false;
+			});
+		}
+		else if("down"==direction && couldWalk(0,1))
+		{
+			hero.y++;
+			hero.isMoving = true;
+			hero.animate({"top": "+="+cell.height()+"px"}, animation_speed, animation_type, function(){
+				hero.isMoving = false;
+			});
+		}
+		
+		if(hero.isMoving){
+			//setTimeout(getPressedKeys, animation_speed*0.9, true);
+		}
+	} 
+ 
+	function couldWalk(x,y){  
+		var animation_speed = 400;
+		//console.log(hero.x+":"+hero.y);
+		if(hero.x+x<0 || hero.x+x==cells_x || hero.y+y<0 || hero.y+y==cells_y){
+			console.log("THE WALL!");
+			return false;
+		}
+		var direction = "";
+		if (x<0)
+			direction = "left"; 
+		if (x>0)
+			direction = "right";
+		if (y<0)
+			direction = "up";
+		if (y>0)
+			direction = "down";
+		//console.log(cells[hero.x+x][hero.y+y]);
+		//return $.inArray("rock",cells[hero.x+x][hero.y+y])<0;
+		var check = cells[hero.x+x][hero.y+y];
+		if(check.length>0){
+			check = check[0];
+			if(check!=null)
+				if(check.hasClass('rock'))
+					{
+						check.hide("slide", { direction: direction }, animation_speed);
+						cells[hero.x+x][hero.y+y][0] = null;
+						return true;
+					}
+		}
+		return true;
+	}
+
+	(function generateRandomMap(){
+		var w = cells_x-1;
+		while(w>=0){
+			var h = cells_y-1;
+			while(h>=0){
+				if(rand(0.5)){
+					createRock(w,h);
+				}
+				h--;
+			}
+			w--;
+		}
+	})();  
+	function createRock(x,y){ 
+		var rock = $('.resources > .rock').clone();
+		rock.offset({left:x*cell.width(), top:y*cell.height()});
+		rock.appendTo(battlefield);
+		cells[x][y].push(rock);
+	}
+	(function generateRandomGems(){
+		var w = cells_x-1;
+		while(w>=0){
+			var h = cells_y-1;
+			while(h>=0){
+				if(rand(0.8)){
+					createGem(w,h);
+				}
+				h--;
+			}
+			w--;
+		}
+	})();
+	function createGem(x,y){ 
+		var item = $('.resources > .gem').clone();
+		item.offset({left:x*cell.width(), top:y*cell.height()});
+		item.appendTo(battlefield);
+		cells[x][y].push(item);
+	}
+	function getRandomArbitary(min, max)
+	{
+		return parseInt(Math.random() * (max - min) + min);
+	}
+
+	function rand(arg){
+		return Math.random() > arg; 
+	}
+</script>

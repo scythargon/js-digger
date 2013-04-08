@@ -1,0 +1,342 @@
+<script src="jquery-1.9.1.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script src="keyboard.js"></script>
+<script src="jquery.jrumble.1.3.min.js"></script>
+
+<style>
+html, body,table, tr,td
+{
+	width: 100%;
+	table-layout: fixed;
+	padding: 0; 
+	margin: 0;
+}
+body {
+	background: white;
+}
+.battlefield{
+}
+table{
+	height: 100%;
+	border: 0;
+	border-collapse: collapse;
+}
+tr{
+	background: rgb(255,255,127);
+	margin: 0;
+	padding: 0;
+}
+td{
+	background: rgb(127,255,255);
+	margin: 0;
+	padding: 0;
+	box-shadow:inset 0 0 10px #000000;
+}
+.unit{
+	z-index: 1;
+	position: absolute;
+	box-shadow:inset 0 0 10px #000000;
+	left: 0;
+	top: 0;
+}
+#hero{
+	background: #00ff00;
+}
+.rock{
+	background: brown;
+}
+.gem{
+	background: pink;
+	border-radius: 50%;
+}
+.gold{
+	background: yellow;
+	border-radius: 50%;	
+}
+#stats{
+	background: blue;
+	height: 20px; 
+	color: white;
+}
+</style>
+<body>
+	<div id="stats">score: <span id='score'>0</span></div>
+	<div id="battlefield"></div>
+	<div style="display:none;" class="resources">
+		<div id="hero" class= "unit"></div>
+		<div class="rock unit"></div>
+		<div class="gem unit"></div>
+		<div class="gold unit"><span>G</span></div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	
+	var cells_x=10,cells_y=10;
+	var cells = [];
+
+	(function makeBattleField(w,h)
+	{
+		w-=1;
+		h-=1;
+		var battlefield = document.createElement("table");
+		while(h>=0){
+			cells[h] = [];
+			var tr = document.createElement("tr");
+			var _w = w;
+			while(_w>=0){
+				cells[h][_w] = [];
+				var td = document.createElement("td");
+				tr.appendChild(td);
+				_w--;
+			}
+			battlefield.appendChild(tr);
+			h--;
+		}
+		document.getElementById('battlefield').appendChild(battlefield);
+	})(cells_x,cells_y);
+	$('#battlefield > table').height(document.body.clientHeight-$('#stats').height());
+	var hero = $('#hero');
+	hero.x=1;
+	hero.y=1;
+	var battlefield = $('#battlefield');
+
+	hero.isMoving = false;
+	var cell = $('#battlefield > table > tr:first > td:first');
+	$('.unit').width(cell.width());
+	$('.unit').height(cell.height());
+	(function createHero(){
+		//$('#battlefield > table > tr:first > td:eq(1)').css('background','red');
+		//$("#battlefield").append(hero);
+		hero.appendTo(battlefield);
+		var p = getCellOffset(1,1);
+		hero.offset(p);
+
+	})();
+
+	setInterval(getPressedKeys, 100);
+	function getCellOffset(x,y){
+		return $('#battlefield > table > tr:eq('+y+') > td:eq('+x+')').offset();
+	}
+	function getPressedKeys()
+	{
+		var activeKeys = KeyboardJS.activeKeys();
+		//console.log(activeKeys);
+		if($.inArray("right",activeKeys)>=0){
+			moveHero("right");
+		}
+		else if($.inArray("left",activeKeys)>=0){
+			moveHero("left");
+		}
+		else if($.inArray("up",activeKeys)>=0){
+			moveHero("up");
+		}
+		else if($.inArray("down",activeKeys)>=0){
+			moveHero("down");
+		}
+	}
+
+	function moveHero(direction){
+		if (hero.isMoving == true)
+			return;
+		animation_speed = 400;
+		animation_type = "linear";
+		if("right"==direction && couldWalk(1,0))
+		{
+			hero.isMoving = true;
+			hero.x++;
+			hero.animate({"left": "+="+cell.width()+"px"}, animation_speed, animation_type, function(){
+				hero.isMoving = false;
+				getPressedKeys();
+			});
+		}
+		else if("left"==direction && couldWalk(-1,0))
+		{
+			hero.x--;
+			hero.isMoving = true;
+			hero.animate({"left": "-="+cell.width()+"px"}, animation_speed, animation_type, function(){
+				hero.isMoving = false;
+				getPressedKeys();
+			});
+		}
+		else if("up"==direction && couldWalk(0, -1))
+		{
+			hero.y--;
+			hero.isMoving = true;
+			hero.animate({"top": "-="+cell.height()+"px"}, animation_speed, animation_type, function(){
+				hero.isMoving = false;
+				getPressedKeys();
+			});
+		}  
+		else if("down"==direction && couldWalk(0,1))
+		{
+			hero.y++;
+			hero.isMoving = true;
+			hero.animate({"top": "+="+cell.height()+"px"}, animation_speed, animation_type, function(){
+				hero.isMoving = false;
+				getPressedKeys();
+			});
+		}
+		
+	} 
+ 
+	function couldWalk(x,y){  
+		var animation_speed = 400;
+		//console.log(hero.x+":"+hero.y);
+		if(hero.x+x<0 || hero.x+x==cells_x || hero.y+y<0 || hero.y+y==cells_y){
+			console.log("THE WALL!");
+			return false;
+		}
+		var direction = "";
+		if (x<0)
+			direction = "left"; 
+		if (x>0)
+			direction = "right";
+		if (y<0)
+			direction = "up";
+		if (y>0)
+			direction = "down";
+		//console.log(cells[hero.x+x][hero.y+y]);
+		//return $.inArray("rock",cells[hero.x+x][hero.y+y])<0;
+		var to_check = cells[hero.x+x][hero.y+y];
+		var l = to_check.length-1;
+		while(l>=0){ 
+			var check = to_check[l];
+			if(check!=null){
+				if(check.hasClass('rock'))
+				{
+					check.hide("slide", { direction: direction }, animation_speed, function(){
+						var if_gold = cellContains(this.x, this.y-1, "gold");
+						//console.log(if_gold);
+						if (if_gold!=null){
+							//if_gold.hide("shake",{},animation_speed,function(){
+							//	$(this).show();
+							//});
+							//if_gold.effect("shake", {direction:'both', distance:10});
+							//if_gold.effect("shake", {direction:'up', distance:10});
+							if_gold.children().jrumble({
+								x: 2,
+								y: 2,
+								rotation: 1
+							});
+							if_gold.children().trigger('startRumble');
+							setTimeout(function(){
+								if_gold.children().trigger('stopRumble');
+								fall(if_gold);
+							}, animation_speed*3);
+						}
+					});
+					cells[hero.x+x][hero.y+y][l] = null;
+				} else if(check.hasClass('gem')){
+					check.hide("highlight",{},animation_speed/2);
+					cells[hero.x+x][hero.y+y][l] = null;
+					var score = parseInt($('#score').html());
+					score++;
+					$('#score').html(score);
+				}
+			}
+			l--;
+		}
+		return true; 
+	}
+	function fall(item){
+		var animation_speed = 400;
+		var animation_type = "linear";
+		if(cellContains(item[0].x, item[0].y+1, "rock")==null)
+		{
+			item.animate({"top": "+="+cell.height()+"px"}, animation_speed, animation_type, function(){
+							item[0].y++;					
+							fall(item);
+						});
+		}
+	}
+	function cellContains(x,y,class_){
+		if (y==-1)
+			return null;
+		if(y>cells_y)
+			return null;
+		var to_check = cells[x][y];
+		var l = to_check.length-1;
+		while(l>=0){	
+			var check = to_check[l];
+			if(check!=null){
+				if(check.hasClass(class_)){
+					return check;
+				}
+			}
+			l--;
+		}
+		return null;
+	}
+
+	(function generateRandomMap(){
+		var w = cells_x-1;
+		while(w>=0){
+			var h = cells_y-1;
+			while(h>=0){
+				if(rand(0.2)){
+					createRock(w,h);
+				}
+				h--;
+			}
+			w--;
+		}
+	})();  
+	function createRock(x,y){ 
+		var rock = $('.resources > .rock').clone();
+		rock[0].x=x;
+		rock[0].y=y;
+		rock.offset(getCellOffset(x,y));
+		rock.appendTo(battlefield);
+		cells[x][y].push(rock);
+	}
+	(function generateRandomGems(){
+		var w = cells_x-1;
+		while(w>=0){
+			var h = cells_y-1;
+			while(h>=0){
+				if(rand(0.8)){
+					createGem(w,h);
+				}
+				h--;
+			}
+			w--;
+		}
+	})();
+	function createGem(x,y){ 
+		var item = $('.resources > .gem').clone();
+		item.offset(getCellOffset(x,y));
+		item.appendTo(battlefield);
+		cells[x][y].push(item);
+	}
+	(function generateRandomGold(){
+		var w = cells_x-1;
+		while(w>=0){
+			var h = cells_y-1;
+			while(h>=0){
+				if(rand(0.5)){
+					createGold(w,h);
+				}
+				h--;
+			}
+			w--;
+		}
+	})();
+	function createGold(x,y){ 
+		var item = $('.resources > .gold').clone();
+		item[0].x=x;
+		item[0].y=y;
+		item.offset(getCellOffset(x,y));
+		item.appendTo(battlefield);
+		cells[x][y].push(item);
+	}
+
+	function getRandomArbitary(min, max)
+	{
+		return parseInt(Math.random() * (max - min) + min);
+	}
+
+	function rand(arg){
+		return Math.random() > arg; 
+	}
+</script>

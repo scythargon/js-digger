@@ -65,35 +65,36 @@
 			direction = "up";
 		if (y>0)
 			direction = "down";
-		var to_check = bf.getCell(hero.x+x, hero.y+y);
+		var to_check = bf.getCell( hero.x + x, hero.y + y );
 		var ret = [];
-				to_check.each(function(){
-					check = $(this);
-				if(check.hasClass('rock') && hungry)
+				to_check.each( function() {
+					check = $( this );
+				if ( check.hasClass( 'rock' ) && hungry )
 				{
 					check.hide("slide", { direction: direction }, animation_speed, function(){
-						var if_gold = bf.getCell(this.x, this.y-1);
+						var if_gold = bf.getCell( this.x, this.y-1 );
                         if ( if_gold == undefined )
                             return;
-                        if_gold = if_gold.filter(".gold");
-						if(if_gold.size()>0){
-							if_gold.children().jrumble({
+                        if_gold = if_gold.filter( ".gold" );
+						if( if_gold.size()>0 ){
+							if_gold.children().jrumble( {
 								x: 2,
 								y: 2,
 								rotation: 1
-							});
-							if_gold.children().trigger('startRumble');
-							setTimeout(function(arg){
-								arg.children().trigger('stopRumble');
+							} );
+							if_gold.children().trigger( 'startRumble' );
+							setTimeout( function( arg ) {
+								arg.children().trigger( 'stopRumble' );
+								debug(4,'from unit');
 								arg.fall();
-							}, animation_speed*3, if_gold);
+							}, animation_speed*3, if_gold );
 						};
 						/**/
-					});
-					bf.removeItemsByClass(hero.x+x, hero.y+y, '.rock');
-				} else if(check.hasClass('consume')){
+					} );
+					bf.removeItemsByClass( hero.x+x, hero.y+y, '.rock' );
+				} else if ( check.hasClass( 'consume' ) ) {
 					//console.log(check);
-					check.hide("highlight",{},animation_speed/2);
+					check.hide( "highlight", {}, animation_speed / 2);
 					bf.removeItemsByClass(hero.x+x, hero.y+y, '.consume');
 					if(check.hasClass('gem')){
 						var score = parseInt($('#score').html());
@@ -106,6 +107,7 @@
 						$('#score-gold').html(score);
 					}
 				} else if(check.hasClass('push')){
+					debug(5,'try push?');
 					ret.push(tryPush(x,y,check));
 					//return false;
 				}

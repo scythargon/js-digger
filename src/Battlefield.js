@@ -5,6 +5,8 @@
 		var cells = $([]);
 		var dom = document.getElementById('battlefield');
 		var table = document.createElement("table");
+        var heroResps = [ ];
+        var enemyResps = [ ];
 		dom.appendChild(table);
 		while(h>=0){
 			cells[h] = $([]);
@@ -74,7 +76,42 @@
 			getCell: function(x,y){
 				return cells[x][y];
 			},
-            dom: dom
+            dom: dom,
+            loadLevel: function( level ) {
+                var i, j;
+                for ( i = 0; i < level.map.length; i++) {
+
+                    for ( j = 0; j < level.map[ i ].length; j++) {
+
+                        if ( ( level.map[ i ][ j ] & level.r ) > 0){
+                            this.createItem( j, i, 'rock' );
+                        }
+
+                        if ( ( level.map[ i ][ j ] & level.d ) > 0){
+                            this.createItem( j, i, 'gem' );
+                        }
+
+                        if ( ( level.map[ i ][ j ] & level.g ) > 0){
+                            this.createItem( j, i, 'gold' );
+                        }
+
+                        if ( ( level.map[ i ][ j ] & level.e ) > 0){
+                            enemyResps.push( [ j, i ] );
+                        }
+
+                        if ( ( level.map[ i ][ j ] & level.h ) > 0){
+                            heroResps.push( [ j, i ] );
+                        }
+                    }
+
+                }
+            },
+            getRandomHeroResp: function() {
+                return heroResps[Math.floor(Math.random() * heroResps.length)];
+            },
+            getRandomEnemyResp: function() {
+                return enemyResps[Math.floor(Math.random() * enemyResps.length)];
+            }
 		}
 	}
 Battlefield.prototype = Entity.prototype;	

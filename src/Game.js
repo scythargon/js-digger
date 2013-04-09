@@ -94,9 +94,10 @@
     }
     var Replace = null;
     var Fallen = null;
-    bf.generateRandomItems(0.2, 'rock');
-    bf.generateRandomItems(0.5, 'gem');
-    bf.generateRandomItems(0.8, 'gold');
+    //bf.generateRandomItems(0.2, 'rock');
+    //bf.generateRandomItems(0.5, 'gem');
+    //bf.generateRandomItems(0.8, 'gold');
+    bf.loadLevel(level1);
     function rand(arg) {
         return Math.random() > arg;
     }

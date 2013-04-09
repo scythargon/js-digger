@@ -2,19 +2,21 @@
 # -*- coding: utf-8 -*-
 
 import gtk,webkit,pyinotify,thread,os,Image,time,gobject,cairo,sys
-from transparent import Transparent
-import Pyro4
+#from transparent import Transparent
+#import Pyro4
 win = gtk.Window(gtk.WINDOW_TOPLEVEL)
 #win.set_type_hint(gtk.gdk.WINDOW_TOPLEVEL)
 win.set_keep_above(True)
 web = webkit.WebView()
 web.set_transparent(True)
 file_='1.html'
-if len(sys.argv)<2:
+if len(sys.argv)<4:
     print 'whut?'
     sys.exit(0)
 
 file_ = sys.argv[1]
+x = int(sys.argv[2])
+y = int(sys.argv[3])
 
 def reload_tmpl(tmpl):
     print 'reloading tmpl ', tmpl
@@ -26,8 +28,8 @@ def reload_tmpl(tmpl):
     #print s
     web.execute_script(s)
 
-Transparent.makeTransparent(win)
-Transparent.makeTransparent(web)
+#Transparent.makeTransparent(win)
+#Transparent.makeTransparent(web)
 win.add(web)
 def reload_html():
     #print '/'.join(os.path.abspath( __file__ ).split('/')[:-1])
@@ -39,7 +41,7 @@ def reload_html():
     
 win.set_size_request(300,300)
 win.resize(300,300)
-win.move(650,30)
+win.move(x,y)
 win.set_decorated(False)
 
 win.set_events(gtk.gdk.EXPOSURE_MASK

@@ -18,9 +18,56 @@
     setInterval(gameLoop, 100);
 
 
-    function gameLoop() {
+    function gameLoop () {
         checkCollisionWithGold();
+        checkGoldVsEnemy();
+        checkHeroVsEnemy();
         getPressedKeys();
+    }
+
+    function checkGoldVsEnemy() {
+        var collisions = $(".gold-falling").collision( ".enemy", { relative: "collider", obstacleData: "odata", colliderData: "cdata", directionData: "ddata", as: "<div/>" } )
+        var hit_area = 0;
+        try{
+            for( var i=0; i<collisions.length; i++ )
+            {
+                var o = $(collisions[i]).data("odata");
+                var c = $(collisions[i]).data("cdata");
+                var d = $(collisions[i]).data("ddata");
+                var cwith = $(o).get(0);
+                var enemy = ObjectStack.getObjByDom(cwith);
+                enemy.dom.remove();
+                enemy.remove();
+                ObjectStack.deleteObject( enemy );
+            }
+        } catch ( e ) {
+            debug( 5, "already deleted" );
+        }
+    }
+
+    function checkHeroVsEnemy() {
+        var collisions = $( "#hero" ).collision( ".enemy", { relative: "collider", obstacleData: "odata", colliderData: "cdata", directionData: "ddata", as: "<div/>" } )
+        var hit_area = 0;
+        try{
+            for( var i=0; i < collisions.length; i++ )
+            {
+                var o = $(collisions[i]).data( "odata" );
+                var c = $(collisions[i]).data( "cdata" );
+                var d = $(collisions[i]).data( "ddata" );
+                var cwith = $(o).get(0);
+
+                $( '#battlefield > .enemy' ).each( function() {
+                    var enemy = ObjectStack.getObjByDom( this );
+                    enemy.dom.remove();
+                    enemy.remove();
+                    ObjectStack.deleteObject( enemy );
+                });
+
+                hitHero();
+            }
+        } catch ( e ) {
+            debug( 5, "already deleted" );
+        }
     }
 
     function checkCollisionWithGold(){
@@ -40,12 +87,12 @@
 
 
         if ( hit_area > ( cell.width() * cell.height() / 10 ) ) {
-            console.log(hit_area);
-            hitByGold();
+            debug( 5, hit_area );
+            hitHero();
         }
     }
-    function hitByGold(){
-        debug( 2, "hit by gold" );
+    function hitHero(){
+        debug( 2, "hit hero" );
         var lives = parseInt($('#lives').html());
         lives--;
         $('#lives').html(lives);
@@ -54,7 +101,6 @@
 
     function getPressedKeys() {
         var activeKeys = KeyboardJS.activeKeys();
-        //console.log(activeKeys);
         if ($.inArray("right", activeKeys) >= 0) {
             hero.move("right");
         }
@@ -97,14 +143,15 @@
     //bf.generateRandomItems(0.2, 'rock');
     //bf.generateRandomItems(0.5, 'gem');
     //bf.generateRandomItems(0.8, 'gold');
-    bf.loadLevel(level1);
+    bf.loadLevel( level1 );
     //setInterval( createNewEnemy, level1.enemyRespTime * 1000);
 
     createNewEnemy();
 
-    function createNewEnemy(){
-        setG( new $().Enemy( bf.getRandomEnemyResp() ) );
+    function createNewEnemy() {
+        var E = new $().Enemy( bf.getRandomEnemyResp() );
     }
+
     function rand(arg) {
         return Math.random() > arg;
     }

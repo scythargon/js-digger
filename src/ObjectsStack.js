@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var ObjectStack = new (function() {
+var ObjectStack = new ( function() {
 
     this.stack = [];
 
@@ -26,15 +26,25 @@ var ObjectStack = new (function() {
 
     this.getObjByDom = function ( dom ) {
 
-        var i;
+        var found_or_error = false;
+        try {
 
-        for ( i = 0; i < this.stack.length; i++) {
-            if ( this.stack[ i ].dom.is($(dom)))
-                return this.stack[ i ];
-        };
+            var i;
 
-        throw new Error( "There are no such object in ObjectStack!" );
+            for ( i = 0; i < this.stack.length; i++) {
+                if ( this.stack[ i ].dom.is($(dom))){
+                    found_or_error = true;
+                    return this.stack[ i ];
+                }
+            };
+        } catch ( e ) { 
+            found_or_error = true;
+            debug( 5, 'ObjectStack: already deleted' );
+            return null;
+        }
 
+        if ( ! found_or_error )
+            throw new Error( "getObjByDom: There are no such object in ObjectStack!" );
     };
 
     this.deleteObject = function ( obj ) {
@@ -51,7 +61,7 @@ var ObjectStack = new (function() {
         };
 
         if( ! deleted )
-            throw new Error( "There are no such object in ObjectStack!" );
+            throw new Error( "deleteObject: There are no such object in ObjectStack!" );
 
     };
 

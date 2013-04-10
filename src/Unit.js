@@ -51,9 +51,7 @@
 	} 
 	Unit.prototype.tryWalk = function(x,y,hungry){  //TODO hungry push
 		var animation_speed = settings.animation_speed;
-		//console.log(hero.x+":"+hero.y);
 		if(this.x+x<0 || this.x+x==settings.cells_x || this.y+y<0 || this.y+y==settings.cells_y){
-			//console.log("THE WALL!");
 			return false;
 		}
 		var direction = "";
@@ -93,7 +91,6 @@
 					} );
 					bf.removeItemsByClass( hero.x+x, hero.y+y, '.rock' );
 				} else if ( check.hasClass( 'consume' ) ) {
-					//console.log(check);
 					check.hide( "highlight", {}, animation_speed / 2);
 					bf.removeItemsByClass(hero.x+x, hero.y+y, '.consume');
 					if(check.hasClass('gem')){

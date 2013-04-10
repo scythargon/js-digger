@@ -51,6 +51,10 @@
         background: #00ff00;
     }
 
+    .enemy {
+        background: red;
+    }
+
     .rock {
         background: brown;
     }
@@ -89,18 +93,21 @@
 <div id="battlefield"></div>
 <div style="display:none;" class="resources">
     <div id="hero" class="unit"></div>
+    <div class="unit enemy"></div>
     <div class="rock unit"></div>
     <div class="gem unit consume"></div>
     <div class="gold unit push"><span>G</span></div>
     <div class="gold-fallen unit consume"><span>G</span></div>
 </div>
 
+<script src="src/ObjectsStack.js"></script>
 <script src="src/Settings.js"></script>
 <script src="src/Entity.js"></script>
 <script src="src/Battlefield.js"></script>
 <script src="src/Unit.js"></script>
 <script src="src/Hero.js"></script>
 <script src="src/levels.js"></script>
+<script src="src/Enemy.js"></script>
 <script src="src/Game.js"></script>
 
 </body>

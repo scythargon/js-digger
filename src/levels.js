@@ -20,6 +20,8 @@ Level.prototype.G = Level.prototype.r | Level.prototype.g; // rock + gold
 
 function Level1(){
 
+    this.enemyRespTime = 5; //seconds
+
     this.map = [
         [ this.r,    	, this.r, this.r, this.G, this.r, this.r, this.r,       , this.e ], // 0
         [ this.D,   	, this.G, this.D, this.D, this.r, this.D, this.r, 	    , this.r ], // 1

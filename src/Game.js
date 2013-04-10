@@ -98,6 +98,13 @@
     //bf.generateRandomItems(0.5, 'gem');
     //bf.generateRandomItems(0.8, 'gold');
     bf.loadLevel(level1);
+    //setInterval( createNewEnemy, level1.enemyRespTime * 1000);
+
+    createNewEnemy();
+
+    function createNewEnemy(){
+        setG( new $().Enemy( bf.getRandomEnemyResp() ) );
+    }
     function rand(arg) {
         return Math.random() > arg;
     }

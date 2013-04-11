@@ -14,8 +14,11 @@
 		if("right"==direction && this.tryWalk(1,0,this.hungry))
 		{
 			this.dom.isMoving = true;
+            this.turnRight();
+            this.startAnimation();
 			this.x++;
 			this.$dom.animate({"left": "+="+cell.width()+"px"}, animation_speed, animation_type, function(){
+                ObjectStack.getObjByDom(this).stopAnimation();
 				this.isMoving = false;
 				getPressedKeys();
 			});
@@ -23,8 +26,11 @@
 		else if("left"==direction && this.tryWalk(-1,0,this.hungry))
 		{
 			this.x--;
+            this.turnLeft();
+            this.startAnimation();
 			this.dom.isMoving = true;
 			this.$dom.animate({"left": "-="+cell.width()+"px"}, animation_speed, animation_type, function(){
+                ObjectStack.getObjByDom(this).stopAnimation();
 				this.isMoving = false;
 				getPressedKeys();
 			});
@@ -32,8 +38,11 @@
 		else if("up"==direction && this.tryWalk(0, -1, this.hungry))
 		{
 			this.y--;
+            this.turnUp();
+            this.startAnimation();
 			this.dom.isMoving = true;
 			this.$dom.animate({"top": "-="+cell.height()+"px"}, animation_speed, animation_type, function(){
+                ObjectStack.getObjByDom(this).stopAnimation();
 				this.isMoving = false;
 				getPressedKeys();
 			});
@@ -41,8 +50,11 @@
 		else if("down"==direction && this.tryWalk(0,1, this.hungry))
 		{
 			this.y++;
+            this.turnDown();
+            this.startAnimation();
 			this.dom.isMoving = true;
 			this.$dom.animate({"top": "+="+cell.height()+"px"}, animation_speed, animation_type, function(){
+                ObjectStack.getObjByDom(this).stopAnimation();
 				this.isMoving = false;
 				getPressedKeys();
 			});

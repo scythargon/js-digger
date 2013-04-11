@@ -4,14 +4,24 @@
 
     var hero = new Hero(1,1);
     hero.$dom.appendTo(bf.dom);
+    hero.initFrames(['images/digger1.png', 'images/digger1_1.png']);
+    //hero.startAnimation();
+
 
     var cell = $('#battlefield > table > tr:first > td:first');
     $('.unit').width(cell.width());
     $('.unit').height(cell.height());
 
-    $('.gold, .gold-fallen').width(cell.width() / 2);
-    $('.gold, .gold-fallen').height(cell.height() / 2);
+    $('.gold > div').width(cell.width());
+    $('.gold > div').height(cell.height());
+    //$('.gold, .gold-fallen').height(cell.height() / 2);
 
+
+
+    var bg_ind = Math.floor(Math.random() * 2) + 1;
+
+    $('td').css('background-image', 'url(images/back_tile'+bg_ind+'_1.png)');
+    $('.rock').css('background-image', 'url(images/back_tile'+bg_ind+'.png)');
 
 
 
@@ -35,10 +45,17 @@
                 var c = $(collisions[i]).data("cdata");
                 var d = $(collisions[i]).data("ddata");
                 var cwith = $(o).get(0);
-                var enemy = ObjectStack.getObjByDom(cwith);
-                enemy.dom.remove();
-                enemy.remove();
-                ObjectStack.deleteObject( enemy );
+
+                var collided = $( collisions[ i ] );
+                var hit_area = collided.width() * collided.height();
+
+                if ( hit_area > (cell.width() * cell.height() / 10) )
+                {
+                    var enemy = ObjectStack.getObjByDom(cwith);
+                    enemy.dom.remove();
+                    enemy.remove();
+                    ObjectStack.deleteObject( enemy );
+                }
             }
         } catch ( e ) {
             debug( 5, "already deleted" );
@@ -56,12 +73,18 @@
                 var d = $(collisions[i]).data( "ddata" );
                 var cwith = $(o).get(0);
 
-                $( '#battlefield > .enemy' ).each( function() {
-                    var enemy = ObjectStack.getObjByDom( this );
-                    enemy.dom.remove();
-                    enemy.remove();
-                    ObjectStack.deleteObject( enemy );
-                });
+                var collided = $( collisions[ i ] );
+                var hit_area = collided.width() * collided.height();
+
+                if ( hit_area > (cell.width() * cell.height() / 10) )
+                {
+                    $( '#battlefield > .enemy' ).each( function() {
+                        var enemy = ObjectStack.getObjByDom( this );
+                        enemy.dom.remove();
+                        enemy.remove();
+                        ObjectStack.deleteObject( enemy );
+                    });
+                }
 
                 hitHero();
             }

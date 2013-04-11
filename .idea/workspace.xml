@@ -7,26 +7,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d990971-f74a-48bb-9f86-874f406dee17" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Enemy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ObjectsStack.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Animations.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bidlocode.html" afterPath="$PROJECT_DIR$/Game.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Battlefield.js" afterPath="$PROJECT_DIR$/src/Battlefield.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game.js" afterPath="$PROJECT_DIR$/src/Game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Settings.js" afterPath="$PROJECT_DIR$/src/Settings.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bidlocode.html" afterPath="$PROJECT_DIR$/bidlocode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/levels.js" afterPath="$PROJECT_DIR$/src/levels.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Hero.js" afterPath="$PROJECT_DIR$/src/Hero.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ObjectsStack.js" afterPath="$PROJECT_DIR$/src/ObjectsStack.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Unit.js" afterPath="$PROJECT_DIR$/src/Unit.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="digger_jquery_arrays.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/bidlocode.html" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365606902639" ignored="false" />
-    <file path="/Battlefield.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365538995732" ignored="false" />
-    <file path="/Unit.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365442721583" ignored="false" />
-    <file path="/Hero.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365433905009" ignored="false" />
+    <file path="/Battlefield.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365690961162" ignored="false" />
+    <file path="/Unit.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365700719148" ignored="false" />
+    <file path="/Hero.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365699283974" ignored="false" />
     <file path="/Settings.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365602934223" ignored="false" />
     <file path="/Dummy.txt" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365531845518" ignored="false" />
     <file path="/levels.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365598104911" ignored="false" />
-    <file path="/Game.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365603898203" ignored="false" />
+    <file path="/Game.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365699453933" ignored="false" />
     <file path="/Enemy.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365607358372" ignored="false" />
-    <file path="/ObjectsStack.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365604435147" ignored="false" />
+    <file path="/ObjectsStack.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365700864696" ignored="false" />
+    <file path="/Game.html" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365699509838" ignored="false" />
+    <file path="/Animations.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1365699904000" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,10 +49,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="bidlocode.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bidlocode.html">
+      <file leaf-file-name="Game.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Game.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="32" selection-start="1998" selection-end="1998" vertical-scroll-proportion="0.67941505">
+            <state line="61" column="49" selection-start="1196" selection-end="1196" vertical-scroll-proportion="1.0292463">
               <folding>
                 <element signature="n#style#0;n#div#2;n#body#0;n#!!top" expanded="true" />
               </folding>
@@ -69,7 +72,7 @@
       <file leaf-file-name="Game.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="22" selection-start="3471" selection-end="3471" vertical-scroll-proportion="0.0">
+            <state line="7" column="6" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -78,7 +81,7 @@
       <file leaf-file-name="Entity.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="23" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0">
+            <state line="5" column="23" selection-start="139" selection-end="139" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -87,8 +90,19 @@
       <file leaf-file-name="Unit.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Unit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="43" selection-start="1173" selection-end="1173" vertical-scroll-proportion="0.0">
+            <state line="56" column="0" selection-start="1789" selection-end="1789" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Animations.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Animations.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="39" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#157#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,7 +110,7 @@
       <file leaf-file-name="Hero.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Hero.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="12" selection-start="0" selection-end="372" vertical-scroll-proportion="0.0">
+            <state line="8" column="25" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -105,7 +119,7 @@
       <file leaf-file-name="Enemy.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Enemy.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="19" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0">
+            <state line="12" column="8" selection-start="229" selection-end="254" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#158#0" expanded="false" />
               </folding>
@@ -116,7 +130,7 @@
       <file leaf-file-name="ObjectsStack.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ObjectsStack.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="0" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0">
+            <state line="34" column="43" selection-start="707" selection-end="707" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#157#0" expanded="false" />
               </folding>
@@ -124,19 +138,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Settings.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Settings.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="0" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Battlefield.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Battlefield.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="23" selection-start="3132" selection-end="3188" vertical-scroll-proportion="0.0">
+            <state line="53" column="0" selection-start="1466" selection-end="1466" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -160,15 +165,17 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Hero.js" />
-        <option value="$PROJECT_DIR$/src/Unit.js" />
-        <option value="$PROJECT_DIR$/src/Battlefield.js" />
         <option value="$PROJECT_DIR$/src/levels.js" />
-        <option value="$PROJECT_DIR$/bidlocode.html" />
         <option value="$PROJECT_DIR$/src/Settings.js" />
-        <option value="$PROJECT_DIR$/src/Game.js" />
-        <option value="$PROJECT_DIR$/src/ObjectsStack.js" />
         <option value="$PROJECT_DIR$/src/Enemy.js" />
+        <option value="$PROJECT_DIR$/src/Battlefield.js" />
+        <option value="$PROJECT_DIR$/bidlocode.html" />
+        <option value="$PROJECT_DIR$/Game.html" />
+        <option value="$PROJECT_DIR$/src/Game.js" />
+        <option value="$PROJECT_DIR$/src/Animations.js" />
+        <option value="$PROJECT_DIR$/src/Hero.js" />
+        <option value="$PROJECT_DIR$/src/ObjectsStack.js" />
+        <option value="$PROJECT_DIR$/src/Unit.js" />
       </list>
     </option>
   </component>
@@ -234,6 +241,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="digger_jquery_arrays" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="digger_jquery_arrays" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -434,13 +455,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/jsTestDriver.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Unit.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="35" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0">
@@ -476,20 +490,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/levels.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="37" selection-start="585" selection-end="585" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Battlefield.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="23" selection-start="3132" selection-end="3188" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Settings.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="73" column="0" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.0">
@@ -497,55 +497,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Hero.js">
+    <entry file="file://$PROJECT_DIR$/src/Battlefield.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="12" selection-start="0" selection-end="372" vertical-scroll-proportion="0.0">
+        <state line="53" column="0" selection-start="1466" selection-end="1466" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Unit.js">
+    <entry file="file://$PROJECT_DIR$/src/levels.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="43" selection-start="1173" selection-end="1173" vertical-scroll-proportion="0.0">
+        <state line="22" column="37" selection-start="585" selection-end="585" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.js">
+    <entry file="file://$PROJECT_DIR$/src/Animations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="22" selection-start="3471" selection-end="3471" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ObjectsStack.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0">
+        <state line="39" column="39" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#157#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="23" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Enemy.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="19" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0">
+        <state line="12" column="8" selection-start="229" selection-end="254" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#158#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bidlocode.html">
+    <entry file="file://$PROJECT_DIR$/src/ObjectsStack.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="32" selection-start="1998" selection-end="1998" vertical-scroll-proportion="0.67941505">
+        <state line="34" column="43" selection-start="707" selection-end="707" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#157#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Hero.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="25" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="6" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="23" selection-start="139" selection-end="139" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Unit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="0" selection-start="1789" selection-end="1789" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="49" selection-start="1196" selection-end="1196" vertical-scroll-proportion="1.0292463">
           <folding>
             <element signature="n#style#0;n#div#2;n#body#0;n#!!top" expanded="true" />
           </folding>

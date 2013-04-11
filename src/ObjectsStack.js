@@ -32,12 +32,12 @@ var ObjectStack = new ( function() {
             var i;
 
             for ( i = 0; i < this.stack.length; i++) {
-                if ( this.stack[ i ].dom.is($(dom))){
+                if ( $(this.stack[ i ].dom).is($(dom))){
                     found_or_error = true;
                     return this.stack[ i ];
                 }
             };
-        } catch ( e ) { 
+        } catch ( e ) {
             found_or_error = true;
             debug( 5, 'ObjectStack: already deleted' );
             return null;
@@ -46,6 +46,7 @@ var ObjectStack = new ( function() {
         if ( ! found_or_error )
             throw new Error( "getObjByDom: There are no such object in ObjectStack!" );
     };
+
 
     this.deleteObject = function ( obj ) {
 

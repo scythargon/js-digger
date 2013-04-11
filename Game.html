@@ -1,4 +1,4 @@
-<script src="lib/jquery-1.9.1.min.js"></script>
+<script src="lib/jquery-1.8.3.min.js"></script>
 <script src="lib/jquery-ui.js"></script>
 <script src="lib/keyboard.js"></script>
 <script src="lib/jquery.jrumble.1.3.min.js"></script>
@@ -36,19 +36,30 @@
         background: rgb(127, 255, 255);
         margin: 0;
         padding: 0;
-        box-shadow: inset 0 0 10px #000000;
+        background-size:100%;
+        background-repeat:no-repeat;
+    }
+
+    td, .unit {
+         /*box-shadow: inset 0 0 10px #000000;/**/
     }
 
     .unit {
         z-index: 1;
         position: absolute;
-        box-shadow: inset 0 0 10px #000000;
         left: 0;
         top: 0;
+        background-size: 100% ! important;
+        background-repeat: no-repeat ! important;
+    }
+
+    .level2 {
+        z-index: 2;
     }
 
     #hero {
-        background: #00ff00;
+        /*background: #00ff00;/**/
+        background-image: url(images/digger1.png);
     }
 
     .enemy {
@@ -57,24 +68,28 @@
 
     .rock {
         background: brown;
+
     }
 
     .gem, .gold, .gold-fallen {
-        border-radius: 50%;
         text-align: center;
         vertical-align: middle;
     }
 
     .gem {
-        background: pink;
+       /*background: pink;/**/
     }
 
-    .gold {
-        background: yellow;
+    .gold > div, .gold-falling > div {
+        /*background: yellow;/**/
+        background-image: url(images/gold.png);
+        background-size: 100% ! important;
+        background-repeat: no-repeat ! important;
     }
 
     .gold-fallen {
-        background: orange;
+        /* background: orange; /**/
+        background-image: url(images/coins.png);
     }
 
     .gold-falling {
@@ -93,21 +108,25 @@
 <div id="battlefield"></div>
 <div style="display:none;" class="resources">
     <div id="hero" class="unit"></div>
-    <div class="unit enemy"></div>
+    <div class="unit enemy level2"></div>
     <div class="rock unit"></div>
-    <div class="gem unit consume"></div>
-    <div class="gold unit push"><span>G</span></div>
-    <div class="gold-fallen unit consume"><span>G</span></div>
+    <div class="gem unit consume level2"></div>
+    <div class="unit gold push level2"><div></div></div>
+    <div class="gold-fallen unit consume level2"><span></span></div>
 </div>
 
 <script src="src/ObjectsStack.js"></script>
 <script src="src/Settings.js"></script>
+<script src="src/Animations.js"></script>
+
 <script src="src/Entity.js"></script>
 <script src="src/Battlefield.js"></script>
 <script src="src/Unit.js"></script>
 <script src="src/Hero.js"></script>
 <script src="src/levels.js"></script>
 <script src="src/Enemy.js"></script>
+
+
 <script src="src/Game.js"></script>
 
 </body>

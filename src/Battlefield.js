@@ -47,6 +47,11 @@
 			createItem: function(x,y,class_){ 
 				"use strict";
 				var item = $('.resources > .'+class_).clone();
+                if ( class_ == 'gem' ){
+                    var bg_ind = Math.floor(Math.random() * 3) + 1;
+
+                    item.css('background-image', 'url(images/gem' + bg_ind + '.png)');
+                }
 				item[0].x=x;
 				item[0].y=y;
 				item.offset(bf.getCellOffset(x,y));

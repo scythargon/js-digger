@@ -176,7 +176,7 @@
     createNewEnemy();
 
     function createNewEnemy() {
-        return new $().Enemy( bf.getRandomEnemyResp() );
+        return new Enemy( bf.getRandomEnemyResp() );
     }
 
     function rand(arg) {

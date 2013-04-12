@@ -17,5 +17,3 @@ function Hero(x, y) {
 Hero.prototype = Unit.prototype;
 
 Animations.call(Hero.prototype);
-
-jQuery.fn.Hero = Hero;

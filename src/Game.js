@@ -2,20 +2,24 @@
 
     var bf = new Battlefield(settings.cells_x, settings.cells_y);
 
-    var hero = new Hero(1,1);
-    hero.$dom.appendTo(bf.dom);
-    hero.initFrames(['images/digger1.png', 'images/digger1_1.png']);
-    //hero.startAnimation();
 
 
     var cell = $('#battlefield > table > tr:first > td:first');
-    $('.unit').width(cell.width());
-    $('.unit').height(cell.height());
+    var w = cell.width();
+    var h = cell.height();
+    var cell_size = Math.min(w,h);
 
-    $('.gold > div').width(cell.width());
-    $('.gold > div').height(cell.height());
+    $('.unit').width(cell_size).height(cell_size);
+
+
+    $('.gold > div').width(cell_size).height(cell_size);
+
+    $('#battlefield').css('width', settings.cells_x*cell_size+'px').css('left', document.documentElement.clientWidth/2-settings.cells_x*cell_size/2+'px');
     //$('.gold, .gold-fallen').height(cell.height() / 2);
 
+    var hero = new Hero(1,1);
+    hero.initFrames(['images/digger1.png', 'images/digger1_1.png']);
+    //hero.startAnimation();
 
 
     var bg_ind = Math.floor(Math.random() * 2) + 1;
@@ -172,7 +176,7 @@
     createNewEnemy();
 
     function createNewEnemy() {
-        var E = new $().Enemy( bf.getRandomEnemyResp() );
+        return new $().Enemy( bf.getRandomEnemyResp() );
     }
 
     function rand(arg) {
@@ -229,8 +233,10 @@
                 item.each(function () {
                     $item = $(this);
                     var fallen = $('.resources > .gold-fallen').clone();
+                    fallen.appendTo(bf.dom);
+                    //$item.replaceWith(fallen);
                     fallen.offset($item.offset());
-                    $item.replaceWith(fallen);
+                    $item.remove();
                     bf.addItems(item[0].x, item[0].y, fallen);
                 });
 

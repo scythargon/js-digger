@@ -6,6 +6,7 @@ function Hero(x, y) {
     this.dom.isMoving = false;
     this.hungry = true;
     ObjectStack.push( this );
+    this.$dom.appendTo( bf.dom );
     this.reset = function () {
         this.$dom.offset(bf.getCellOffset(this.initx, this.inity));
         this.setXY(this.initx, this.inity);
@@ -16,3 +17,5 @@ function Hero(x, y) {
 Hero.prototype = Unit.prototype;
 
 Animations.call(Hero.prototype);
+
+jQuery.fn.Hero = Hero;

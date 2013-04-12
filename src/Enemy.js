@@ -16,8 +16,12 @@
         this.y = respCoords[ 1 ];
 
         var item = $( ".resources > .enemy" ).clone();
-        item.offset( bf.getCellOffset( this.x, this.y ) );
         item.appendTo( bf.dom );
+        item.offset( bf.getCellOffset( this.x, this.y ) );
+
+        var bg_ind = Math.floor(Math.random() * 3) + 1;
+        item.css('background-image', 'url(images/monster'+bg_ind+'_1.png)');
+
         bf.addItems( this.x, this.y, item );
 
         this.dom = item;

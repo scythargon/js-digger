@@ -54,8 +54,9 @@
                 }
 				item[0].x=x;
 				item[0].y=y;
+                item.appendTo(dom);
 				item.offset(bf.getCellOffset(x,y));
-				item.appendTo(dom);
+
 				cells[x][y] = cells[x][y].add(item);
 			},
 			removeItems: function(x,y,items){

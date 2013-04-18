@@ -17,8 +17,8 @@
     $('#battlefield').css('width', settings.cells_x*cell_size+'px').css('left', document.documentElement.clientWidth/2-settings.cells_x*cell_size/2+'px');
     //$('.gold, .gold-fallen').height(cell.height() / 2);
 
-    var hero = new Hero(1,1);
-    hero.initFrames(['images/digger1.png', 'images/digger1_1.png']);
+    //var hero = new Hero(1,1);
+    //hero.initFrames(['images/digger1.png', 'images/digger1_1.png']);
     //hero.startAnimation();
 
 
@@ -55,10 +55,11 @@
 
                 if ( hit_area > (cell.width() * cell.height() / 10) )
                 {
-                    var enemy = ObjectStack.getObjByDom(cwith);
+                    var enemy = ObjectStack.getObjByDom( cwith );
                     enemy.dom.remove();
-                    enemy.remove();
+                    //enemy.remove();
                     ObjectStack.deleteObject( enemy );
+                    enemy = null;
                 }
             }
         } catch ( e ) {
@@ -67,7 +68,7 @@
     }
 
     function checkHeroVsEnemy() {
-        var collisions = $( "#hero" ).collision( ".enemy", { relative: "collider", obstacleData: "odata", colliderData: "cdata", directionData: "ddata", as: "<div/>" } )
+        var collisions = $( "#battlefield > .hero" ).collision( ".enemy", { relative: "collider", obstacleData: "odata", colliderData: "cdata", directionData: "ddata", as: "<div/>" } )
         var hit_area = 0;
         try{
             for( var i=0; i < collisions.length; i++ )
@@ -98,7 +99,7 @@
     }
 
     function checkCollisionWithGold(){
-        var collisions = $("#hero").collision( ".gold-falling", { relative: "collider", obstacleData: "odata", colliderData: "cdata", directionData: "ddata", as: "<div/>" } )
+        var collisions = $(".hero").collision( ".gold-falling", { relative: "collider", obstacleData: "odata", colliderData: "cdata", directionData: "ddata", as: "<div/>" } )
         var hit_area = 0;
         for( var i=0; i<collisions.length; i++ )
         {
@@ -120,10 +121,22 @@
     }
     function hitHero(){
         debug( 2, "hit hero" );
+
+        $( "#battlefield > .enemy").each(function(){
+            var enemy = ObjectStack.getObjByDom( this );
+            $(enemy.dom).remove();
+            ObjectStack.deleteObject( enemy );
+            enemy = null;
+        });
+
         var lives = parseInt($('#lives').html());
         lives--;
         $('#lives').html(lives);
-        hero.reset();
+        hero.dom.remove();
+        //hero.remove();
+        ObjectStack.deleteObject(hero);
+        hero = null;
+        createNewHero();
     }
 
     function getPressedKeys() {
@@ -174,6 +187,14 @@
     //setInterval( createNewEnemy, level1.enemyRespTime * 1000);
 
     createNewEnemy();
+
+    var hero;
+    createNewHero();
+
+
+    function createNewHero(){
+        hero = new Hero( bf.getRandomHeroResp() );
+    }
 
     function createNewEnemy() {
         return new Enemy( bf.getRandomEnemyResp() );

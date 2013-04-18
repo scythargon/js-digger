@@ -46,11 +46,15 @@ var Animations = function() {
     };
 
     this.nextFrame = function( animated ){
-        animated.frameNum++;
-        if ( animated.frameNum >= animated.frames.length )
-            animated.frameNum = 0;
+        try {
+            animated.frameNum++;
+            if ( animated.frameNum >= animated.frames.length )
+                animated.frameNum = 0;
 
-        $(animated.dom).css('background-image', 'url(' + animated.frames[ animated.frameNum] + ')');
+            $(animated.dom).css('background-image', 'url(' + animated.frames[ animated.frameNum] + ')');
+        } catch (e){
+            debug(6,'Tried to animate deleted object');
+        }
 
     };
 

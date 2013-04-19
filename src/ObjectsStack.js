@@ -32,6 +32,8 @@ var ObjectStack = new ( function() {
             var i;
 
             for ( i = 0; i < this.stack.length; i++) {
+                if ( this.stack[ i ] == null )
+                    continue;
                 if ( $(this.stack[ i ].dom).is($(dom))){
                     found_or_error = true;
                     return this.stack[ i ];

@@ -33,9 +33,9 @@
 
 
     function gameLoop () {
-        checkCollisionWithGold();
+        checkGoldVsHero();
         checkGoldVsEnemy();
-        checkHeroVsEnemy();
+        checkEnemyVsHero();
         getPressedKeys();
     }
 
@@ -67,10 +67,10 @@
         }
     }
 
-    function checkHeroVsEnemy() {
+    function checkEnemyVsHero() {
         var collisions = $( "#battlefield > .hero" ).collision( ".enemy", { relative: "collider", obstacleData: "odata", colliderData: "cdata", directionData: "ddata", as: "<div/>" } )
         var hit_area = 0;
-        try{
+        try {
             for( var i=0; i < collisions.length; i++ )
             {
                 var o = $(collisions[i]).data( "odata" );
@@ -80,25 +80,19 @@
 
                 var collided = $( collisions[ i ] );
                 var hit_area = collided.width() * collided.height();
+                debug( 5, "checkEnemyVsHero" );
 
                 if ( hit_area > (cell.width() * cell.height() / 10) )
                 {
-                    $( '#battlefield > .enemy' ).each( function() {
-                        var enemy = ObjectStack.getObjByDom( this );
-                        enemy.dom.remove();
-                        enemy.remove();
-                        ObjectStack.deleteObject( enemy );
-                    });
+                    hitHero();
                 }
-
-                hitHero();
             }
         } catch ( e ) {
             debug( 5, "already deleted" );
         }
     }
 
-    function checkCollisionWithGold(){
+    function checkGoldVsHero(){
         var collisions = $(".hero").collision( ".gold-falling", { relative: "collider", obstacleData: "odata", colliderData: "cdata", directionData: "ddata", as: "<div/>" } )
         var hit_area = 0;
         for( var i=0; i<collisions.length; i++ )
@@ -108,6 +102,8 @@
             var d = $(collisions[i]).data("ddata");
             var cwith = $(o).get(0).id;
             var cside = d;
+            if ( cside.indexOf('N') == -1 )
+                continue;
             var snap  = $(c);
             var collided = $( collisions[ i ] );
             hit_area += collided.width() * collided.height();
@@ -115,14 +111,15 @@
 
 
         if ( hit_area > ( cell.width() * cell.height() / 10 ) ) {
-            debug( 5, hit_area );
+            debug( 4, hit_area );
             hitHero();
         }
     }
     function hitHero(){
-        debug( 2, "hit hero" );
+        debug( 6, "hit hero" );
 
         $( "#battlefield > .enemy").each(function(){
+            setG(this);
             var enemy = ObjectStack.getObjByDom( this );
             $(enemy.dom).remove();
             ObjectStack.deleteObject( enemy );
@@ -226,12 +223,14 @@
                 return this;
             }
             var item = this;
+            item.removeClass('push');
 
             if ( bf.cellContains( item[0].x, item[0].y + 1, ".rock" ) == 0 ) {
                 debug( 2, 'lets fall' );
                 //item.effect("highlight", {color: 'red'}, 3000);
 
                 item.addClass( 'gold-falling' );
+                item.css('transform', 'rotate(90deg)');
                 item.animate( { "top": "+=" + cell.height() + "px" }, { 
                     duration: animation_speed, 
                     easing: animation_type, 

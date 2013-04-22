@@ -2,7 +2,9 @@
 
     var bf = new Battlefield(settings.cells_x, settings.cells_y);
 
+    bf.loadLevel( level1 );
 
+    /*
 
     var cell = $('#battlefield > table > tr:first > td:first');
     var w = cell.width();
@@ -27,7 +29,7 @@
     $('td').css('background-image', 'url(images/back_tile'+bg_ind+'_1.png)');
     $('.rock').css('background-image', 'url(images/back_tile'+bg_ind+'.png)');
 
-
+    bf.loadLevel( level1 );
 
     setInterval(gameLoop, 100);
 
@@ -180,7 +182,7 @@
     //bf.generateRandomItems(0.2, 'rock');
     //bf.generateRandomItems(0.5, 'gem');
     //bf.generateRandomItems(0.8, 'gold');
-    bf.loadLevel( level1 );
+
     //setInterval( createNewEnemy, level1.enemyRespTime * 1000);
 
     createNewEnemy();
@@ -266,3 +268,4 @@
         };
 
     })(jQuery);
+    /**/

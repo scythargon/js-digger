@@ -2,18 +2,18 @@
 	function Battlefield(w,h){
 		w-=1;
 		h-=1;
-		var cells = $([]);
+		var cells = [];
 		var dom = document.getElementById('battlefield');
 		var table = document.createElement("table");
         var heroResps = [ ];
         var enemyResps = [ ];
 		dom.appendChild(table);
 		while(h>=0){
-			cells[h] = $([]);
+			cells[h] = [];
 			var tr = document.createElement("tr");
 			var _w = w;
 			while(_w>=0){
-				cells[h][_w] = $([]);
+				cells[h][_w] = [];
 				var td = document.createElement("td");
 				tr.appendChild(td);
 				_w--;
@@ -21,7 +21,7 @@
 			table.appendChild(tr);
 			h--;		
 		}
-		$('#battlefield > table').height(document.body.clientHeight-$('#stats').height());
+		$('#battlefield > table').height(document.body.clientHeight-$('#stats').height()); TODO remove jQuery
 		return{
 			getCellOffset: function(x,y){
 				return $('#battlefield > table > tr:eq('+y+') > td:eq('+x+')').offset();

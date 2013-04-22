@@ -7,8 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d990971-f74a-48bb-9f86-874f406dee17" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game.js" afterPath="$PROJECT_DIR$/src/Game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ObjectsStack.js" afterPath="$PROJECT_DIR$/src/ObjectsStack.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Game.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="digger_jquery_arrays.iws" />
@@ -25,6 +24,7 @@
     <file path="/ObjectsStack.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1366378363216" ignored="false" />
     <file path="/Game.html" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1366379161251" ignored="false" />
     <file path="/Animations.js" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1366209385786" ignored="false" />
+    <file path="/index.html" changelist="6d990971-f74a-48bb-9f86-874f406dee17" time="1366468811079" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,21 +44,54 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Game.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Game.html">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="33" selection-start="200" selection-end="216" vertical-scroll-proportion="-2.5">
+            <state line="0" column="29" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Game.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="225" column="36" selection-start="7370" selection-end="7370" vertical-scroll-proportion="0.26923078">
+            <state line="225" column="36" selection-start="7370" selection-end="7370" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!block;n#getPressedKeys#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery-collision.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/jquery-collision.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery-1.8.3.min.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/jquery-1.8.3.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery-1.8.3.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/jquery-1.8.3.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,15 +115,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Unit.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Unit.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="18" selection-start="906" selection-end="906" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Animations.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Animations.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -103,16 +127,7 @@
       <file leaf-file-name="Hero.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Hero.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="52" selection-start="547" selection-end="547" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Enemy.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Enemy.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="71" selection-start="125" selection-end="280" vertical-scroll-proportion="0.0">
+            <state line="18" column="1" selection-start="547" selection-end="547" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -122,15 +137,6 @@
         <entry file="file://$PROJECT_DIR$/src/ObjectsStack.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="35" column="29" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Battlefield.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Battlefield.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="44" selection-start="1198" selection-end="1198" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -165,14 +171,15 @@
         <option value="$PROJECT_DIR$/src/ObjectsStack.js" />
         <option value="$PROJECT_DIR$/Game.html" />
         <option value="$PROJECT_DIR$/src/Game.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1855" />
-    <option name="height" value="1056" />
+    <option name="x" value="64" />
+    <option name="y" value="-4" />
+    <option name="width" value="1857" />
+    <option name="height" value="1085" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -229,6 +236,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="digger_jquery_arrays" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="digger_jquery_arrays" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -360,13 +381,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1855" height="1056" extended-state="0" />
+    <frame x="64" y="-4" width="1857" height="1085" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14870094" sideWeight="0.7167199" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.115661316" sideWeight="0.6703297" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11553344" sideWeight="0.6703297" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28328007" sideWeight="0.4995005" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.112216696" sideWeight="0.61661345" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -444,25 +465,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Unit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="35" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jsTestDriver.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1469" column="18" selection-start="26185" selection-end="26195" vertical-scroll-proportion="0.33296824" />
@@ -489,7 +491,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Enemy.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="71" selection-start="125" selection-end="280" vertical-scroll-proportion="0.0">
+        <state line="8" column="28" selection-start="125" selection-end="280" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -503,7 +505,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Hero.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="52" selection-start="547" selection-end="547" vertical-scroll-proportion="0.0">
+        <state line="18" column="1" selection-start="547" selection-end="547" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -511,13 +513,6 @@
     <entry file="file://$PROJECT_DIR$/src/Animations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="19" selection-start="551" selection-end="586" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Game.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="33" selection-start="200" selection-end="216" vertical-scroll-proportion="-2.5">
           <folding />
         </state>
       </provider>
@@ -545,10 +540,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="225" column="36" selection-start="7370" selection-end="7370" vertical-scroll-proportion="0.26923078">
+        <state line="225" column="36" selection-start="7370" selection-end="7370" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!block;n#getPressedKeys#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/jquery-collision.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/jquery-1.8.3.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/jquery-1.8.3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="29" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
